@@ -36,7 +36,7 @@ app.get('/form_receiver', function(req, res){
     '이름: '+guest_name+'<br>이메일: '+guest_email+'<br>내용: '+guest_review+'<br>'+output
   )
   //get방식으로 전송하는 데이터는 이 function 익명함수가 실행 될 때 첫번째 인자로 전달되는 req에 들어있는 request 객체에 query라고 하는 객체의 guest_name등의 사용자가 요청한 데이터를 받을 수 있다.
-
+  //get방식은 url규격상 전송 데이터 길이 한계가 있습니다.
 });
 app.post('/form_receiver', function(req, res){
   var guest_name = req.body.guest_name;
@@ -46,7 +46,7 @@ app.post('/form_receiver', function(req, res){
   <input type="button" value="홈으로" onClick="self.location='http://localhost:4000/'">`
   res.send('이름: '+guest_name+'<br>이메일: '+guest_email+'<br>내용: '+guest_review+'<br>'+output)
 })
-
+// post방식은 풀필요한 정보가 노출되지 않습니다. 하지만 보안적으로 안전한건 아닙니다.
 
 app.listen(4000, function(){
 console.log('connected 4000 port!');
